@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSI Scuba Visual Inspection</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f2f2f2;margin:10px;font-size:14px}
+.container{max-width:900px;margin:auto;background:#fff;padding:12px;border-radius:8px}
+.section{border:1px solid #999;margin:10px 0}
+.sectionTitle{background:#0b5cab;color:#fff;padding:6px 8px;font-weight:bold;font-size:15px}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;margin-bottom:10px}
+.field{flex:1;min-width:200px}
+label{display:block;font-weight:bold;margin:.2em 0 .15em}
+input[type=text],input[type=date],textarea{width:100%;padding:5px;box-sizing:border-box;font-size:14px;border:2px solid #444;border-radius:3px}
+table{width:100%;border-collapse:collapse}
+td{padding:8px;vertical-align:top}
+button{padding:10px 18px;font-size:16px;margin:8px}
+canvas{border:2px solid #444;width:100%;background:#fff;touch-action:none}
+@media print{button{display:none}body{background:#fff}.container{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>VISUAL CYLINDER INSPECTION EVALUATION</h1>
+<h3>SCUBA Cylinder Inspection Form</h3>
+
+<div class="section"><div class="sectionTitle">OWNER INFORMATION</div><div style="padding:10px">
+<div class="row">
+<div class="field"><label>Owner</label><input type="text"></div>
+<div class="field"><label>Date</label><input type="date" id="today"></div>
+</div>
+<div class="row">
+<div class="field"><label>Address</label><input type="text"></div>
+<div class="field"><label>City</label><input type="text"></div>
+<div class="field"><label>State</label><input type="text"></div>
+<div class="field"><label>Phone</label><input type="text"></div>
+</div>
+<div class="row">
+<div class="field"><label>Cylinder Volume</label><input type="text"></div>
+</div>
+</div></div>
+
+<div class="section"><div class="sectionTitle">CYLINDER INFORMATION</div><div style="padding:10px">
+<div class="row">
+<div class="field"><label>Manufacturer</label><input type="text"></div>
+<div class="field"><label>Serial Number</label><input type="text"></div>
+<div class="field"><label>First Hydro</label><input type="text"></div>
+<div class="field"><label>Current Hydro</label><input type="text"></div>
+</div>
+<div class="row">
+<div class="field"><label>Working Pressure</label><input type="text"></div>
+<div class="field"><label>Color</label><input type="text"></div>
+<div class="field"><label>Material</label>
+<label><input type="radio" name="mat"> Steel</label>
+<label><input type="radio" name="mat"> Aluminum</label>
+</div>
+</div></div></div>
+
+<div class="section"><div class="sectionTitle">EXTERNAL INSPECTION</div><div style="padding:10px">
+<div class="row" style="margin-bottom:18px;">
+<div class="field"><label>Heat Damage</label><label style="display:inline;margin-right:18px;"><input type="radio" name="heat"> Yes</label><label style="display:inline;"><input type="radio" name="heat"> No</label></div>
+<div class="field"><label>Repainting</label><label style="display:inline;margin-right:18px;"><input type="radio" name="repaint"> Yes</label><label style="display:inline;"><input type="radio" name="repaint"> No</label></div>
+</div>
+<div class="row" style="margin-bottom:18px;">
+<div class="field"><label>Odor</label><label style="display:inline;margin-right:18px;"><input type="radio" name="odor"> Yes</label><label style="display:inline;"><input type="radio" name="odor"> No</label></div>
+<div class="field"><label>Bow</label><label style="display:inline;margin-right:18px;"><input type="radio" name="bow"> Yes</label><label style="display:inline;"><input type="radio" name="bow"> No</label></div>
+</div>
+<div class="row" style="margin-bottom:18px;">
+<div class="field"><label>Bulges</label><label style="display:inline;margin-right:18px;"><input type="radio" name="bulges"> Yes</label><label style="display:inline;"><input type="radio" name="bulges"> No</label></div>
+<div class="field">
+
+        <label>Hammer Tone Test (Steel Only) Bell Like</label>
+
+        <div style="margin-top:10px;">
+            <label style="display:inline;margin-right:18px;">
+                <input type="radio" name="hammer"> Yes
+            </label>
+
+            <label style="display:inline;margin-right:18px;">
+                <input type="radio" name="hammer"> No
+            </label>
+
+            <label style="display:inline;">
+                <input type="radio" name="hammer"> N/A
+            </label>
+        </div>
+
+    </div></div>
+
+
+
+
+
+
+<label>Exterior Notes</label><div style="height:8px;"></div><textarea rows="3" style="min-height:68px"></textarea>
+<div style="margin-top:12px;"></div><label>Location and depth of marks, pits, gouges of more than 0.015"</label><div style="height:8px;"></div><textarea rows="3" style="min-height:68px"></textarea>
+<div style="margin-top:12px;"></div><label>Line corrosion around boot and other accessories</label>
+<label><input type="radio" name="corrosion">Yes</label>
+<label><input type="radio" name="corrosion">No</label>
+<br><br>
+
+<div style="display:flex;gap:30px;flex-wrap:wrap;align-items:center;"><label><input type="radio" name="ext">Acceptable</label><label><input type="radio" name="ext">Marginal</label><label><input type="radio" name="ext">Condemn</label></div>
+</div></div>
+
+<div class="section"><div class="sectionTitle">INTERNAL INSPECTION</div><div style="padding:10px">
+<label>Contents</label><textarea rows="2" style="min-height:52px"></textarea>
+<label>Internal Surface</label><textarea rows="3" style="min-height:68px"></textarea>
+<label>Pitting</label><textarea rows="2" style="min-height:52px"></textarea>
+<div style="display:flex;gap:30px;flex-wrap:wrap;align-items:center;"><label><input type="radio" name="int">Acceptable</label><label><input type="radio" name="int">Marginal</label><label><input type="radio" name="int">Condemn</label></div>
+</div></div>
+
+<div class="section"><div class="sectionTitle">THREADS / VALVE</div><div style="padding:10px">
+<div class="row">
+<div class="field"><label>Thread Notes</label><input type="text"></div>
+<div class="field"><label>Number of Threads Damaged</label><input type="text"></div>
+</div>
+<div class="row">
+<div class="field"><label>O-Ring Gland Surface</label><input type="text"></div>
+<div class="field"><label>Valve Notes</label><input type="text"></div>
+</div>
+
+<div style="display:flex;gap:30px;flex-wrap:wrap;align-items:center;"><label><input type="radio" name="final">Acceptable</label><label><input type="radio" name="final">Marginal</label><label><input type="radio" name="final">Condemn</label></div>
+</div></div>
+
+
+<div class="section"><div class="sectionTitle">OVERALL CYLINDER CONDITION</div><div style="padding:10px">
+<div style="display:flex;gap:36px;align-items:center;flex-wrap:wrap;font-size:1.5em;">
+<label><input type="radio" name="overall"> Acceptable</label>
+<label><input type="radio" name="overall"> Marginal</label>
+<label><input type="radio" name="overall"> Condemn</label>
+</div>
+</div></div>
+
+<div class="section"><div class="sectionTitle">INSPECTOR</div><div style="padding:10px">
+<div class="row">
+<div class="field"><label>Inspector Name</label><input type="text"></div>
+<div class="field"><label>PSI Number</label><input type="text"></div>
+</div>
+<label>Digital Signature</label>
+<canvas id="signaturePad" width="900" height="180"></canvas><br>
+<button type="button" onclick="clearSignature()">Clear Signature</button>
+</div></div>
+
+<div style="text-align:center"><button type="button" onclick="savePDF()">Create PDF</button> <button type="button" onclick="window.print()">Print</button></div>
+</div>
+
+<script>
+document.getElementById("today").value=new Date().toISOString().split("T")[0];
+const canvas=document.getElementById("signaturePad");
+const ctx=canvas.getContext("2d");
+let drawing=false;
+function getPos(e){
+ const r=canvas.getBoundingClientRect();
+ const t=e.touches?e.touches[0]:e;
+ return {x:t.clientX-r.left,y:t.clientY-r.top};
+}
+function start(e){drawing=true;e.preventDefault();const p=getPos(e);ctx.beginPath();ctx.moveTo(p.x,p.y);}
+function move(e){if(!drawing)return;e.preventDefault();const p=getPos(e);ctx.lineTo(p.x,p.y);ctx.stroke();}
+function end(e){drawing=false;if(e)e.preventDefault();}
+canvas.addEventListener("mousedown",start);
+canvas.addEventListener("mousemove",move);
+window.addEventListener("mouseup",end);
+canvas.addEventListener("touchstart",start,{passive:false});
+canvas.addEventListener("touchmove",move,{passive:false});
+canvas.addEventListener("touchend",end,{passive:false});
+function clearSignature(){ctx.clearRect(0,0,canvas.width,canvas.height);}
+
+function savePDF(){window.print();}
+</script>
+</body></html>
